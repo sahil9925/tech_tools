@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { CheckCircle2, XCircle, AlertTriangle, Minus } from 'lucide-react'
 
-type StatusType = 'pass' | 'fail' | 'warning' | 'none' | 'valid' | 'invalid' | 'expired' | 'not-found' | 'healthy' | 'error' | 'active' | 'inactive'
+type StatusType = 'pass' | 'fail' | 'warning' | 'none' | 'valid' | 'invalid' | 'expired' | 'not-found' | 'healthy' | 'error' | 'active' | 'inactive' | 'degraded' | 'unknown' | 'neutral'
 
 interface StatusBadgeProps {
   status: StatusType
@@ -26,8 +26,11 @@ const STATUS_CONFIG: Record<StatusType, {
   error: { icon: XCircle, color: 'text-red-600 dark:text-red-400', label: 'ERROR' },
   inactive: { icon: XCircle, color: 'text-red-600 dark:text-red-400', label: 'INACTIVE' },
   warning: { icon: AlertTriangle, color: 'text-amber-600 dark:text-amber-400', label: 'WARNING' },
+  degraded: { icon: AlertTriangle, color: 'text-amber-600 dark:text-amber-400', label: 'DEGRADED' },
   'not-found': { icon: Minus, color: 'text-muted-foreground', label: 'NOT FOUND' },
   none: { icon: Minus, color: 'text-muted-foreground', label: 'NONE' },
+  neutral: { icon: Minus, color: 'text-muted-foreground', label: 'NEUTRAL' },
+  unknown: { icon: Minus, color: 'text-muted-foreground', label: 'UNKNOWN' },
 }
 
 export function StatusBadge({ status, label, size = 'md', className }: StatusBadgeProps) {

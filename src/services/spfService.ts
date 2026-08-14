@@ -1,5 +1,5 @@
 import { queryDNS, parseTXTData } from '@/lib/doh'
-import type { SPFResult, SPFCheckItem } from '@/types'
+import type { SPFResult, SPFCheck } from '@/types'
 
 export const spfService = {
   async check(domain: string): Promise<SPFResult> {
@@ -40,7 +40,7 @@ export const spfService = {
     }
 
     const record = spfRecords[0]
-    const checks: SPFCheckItem[] = [
+    const checks: SPFCheck[] = [
       { label: 'SPF Record Found', passed: true, detail: record },
       { label: 'Single SPF Record', passed: spfRecords.length === 1, detail: `${spfRecords.length} record(s) found` },
       { label: 'Valid Prefix (v=spf1)', passed: record.toLowerCase().startsWith('v=spf1') },

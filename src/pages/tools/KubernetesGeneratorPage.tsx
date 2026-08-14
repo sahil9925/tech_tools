@@ -233,7 +233,7 @@ export function KubernetesGeneratorPage() {
                 {[{ k: 'name', label: 'Name', p: 'my-app' }, { k: 'namespace', label: 'Namespace', p: 'default' }, { k: 'image', label: 'Image', p: 'nginx:latest' }, { k: 'containerPort', label: 'Container Port', p: '80' }].map(({ k, label, p }) => (
                   <div key={k} className="space-y-1">
                     <label className="text-xs text-muted-foreground">{label}</label>
-                    <Input value={String((dep as Record<string, unknown>)[k])} onChange={(e) => depUpdate(k as keyof DeploymentConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
+                    <Input value={String((dep as unknown as Record<string, unknown>)[k])} onChange={(e) => depUpdate(k as keyof DeploymentConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
                   </div>
                 ))}
                 <div className="space-y-1">
@@ -245,7 +245,7 @@ export function KubernetesGeneratorPage() {
                 {[{ k: 'cpuRequest', label: 'CPU Request', p: '100m' }, { k: 'memRequest', label: 'Memory Request', p: '128Mi' }, { k: 'cpuLimit', label: 'CPU Limit', p: '500m' }, { k: 'memLimit', label: 'Memory Limit', p: '512Mi' }].map(({ k, label, p }) => (
                   <div key={k} className="space-y-1">
                     <label className="text-xs text-muted-foreground">{label}</label>
-                    <Input value={String((dep as Record<string, unknown>)[k])} onChange={(e) => depUpdate(k as keyof DeploymentConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
+                    <Input value={String((dep as unknown as Record<string, unknown>)[k])} onChange={(e) => depUpdate(k as keyof DeploymentConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
                   </div>
                 ))}
               </div>
@@ -275,7 +275,7 @@ export function KubernetesGeneratorPage() {
               {[{ k: 'name', label: 'Service Name', p: 'my-service' }, { k: 'namespace', label: 'Namespace', p: 'default' }, { k: 'port', label: 'Port', p: '80' }, { k: 'targetPort', label: 'Target Port', p: '80' }, { k: 'selector', label: 'Selector (app label)', p: 'my-app' }].map(({ k, label, p }) => (
                 <div key={k} className="space-y-1">
                   <label className="text-xs text-muted-foreground">{label}</label>
-                  <Input value={(svc as Record<string, string>)[k]} onChange={(e) => svcUpdate(k as keyof ServiceConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
+                  <Input value={(svc as unknown as Record<string, string>)[k]} onChange={(e) => svcUpdate(k as keyof ServiceConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
                 </div>
               ))}
               <div className="space-y-1">
@@ -295,7 +295,7 @@ export function KubernetesGeneratorPage() {
                 {[{ k: 'name', label: 'Ingress Name', p: 'my-ingress' }, { k: 'namespace', label: 'Namespace', p: 'default' }, { k: 'host', label: 'Host', p: 'example.com' }, { k: 'path', label: 'Path', p: '/' }, { k: 'serviceName', label: 'Service Name', p: 'my-service' }, { k: 'servicePort', label: 'Service Port', p: '80' }].map(({ k, label, p }) => (
                   <div key={k} className="space-y-1">
                     <label className="text-xs text-muted-foreground">{label}</label>
-                    <Input value={(ing as Record<string, string | boolean>)[k] as string} onChange={(e) => ingUpdate(k as keyof IngressConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
+                    <Input value={(ing as unknown as Record<string, string | boolean>)[k] as string} onChange={(e) => ingUpdate(k as keyof IngressConfig, e.target.value)} placeholder={p} className="font-mono text-sm" />
                   </div>
                 ))}
               </div>
@@ -342,7 +342,7 @@ export function KubernetesGeneratorPage() {
               {[{ k: 'name', label: 'Job Name', p: 'my-job' }, { k: 'namespace', label: 'Namespace', p: 'default' }, { k: 'image', label: 'Image', p: 'busybox:latest' }, { k: 'command', label: 'Command', p: 'echo hello' }].map(({ k, label, p }) => (
                 <div key={k} className="space-y-1">
                   <label className="text-xs text-muted-foreground">{label}</label>
-                  <Input value={(job as Record<string, string>)[k]} onChange={(e) => setJob((j) => ({ ...j, [k]: e.target.value }))} placeholder={p} className="font-mono text-sm" />
+                  <Input value={(job as unknown as Record<string, string>)[k]} onChange={(e) => setJob((j) => ({ ...j, [k]: e.target.value }))} placeholder={p} className="font-mono text-sm" />
                 </div>
               ))}
             </div>

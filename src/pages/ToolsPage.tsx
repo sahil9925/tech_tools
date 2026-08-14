@@ -13,7 +13,7 @@ import { trackSearch } from '@/services/analytics'
 import type { Tool, ToolCategory } from '@/types'
 
 function ToolCard({ tool }: { tool: Tool }) {
-  const Icon = (Icons as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
+  const Icon = (Icons as unknown as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
   const colors = CATEGORY_COLORS[tool.category]
 
   return (

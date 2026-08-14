@@ -17,7 +17,7 @@ export function RelatedTools({ tools }: RelatedToolsProps) {
       <h2 className="text-base font-semibold">Related Tools</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {tools.map((tool) => {
-          const Icon = (Icons as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
+          const Icon = (Icons as unknown as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
           const colors = CATEGORY_COLORS[tool.category]
 
           return (

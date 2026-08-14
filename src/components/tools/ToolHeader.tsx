@@ -11,7 +11,7 @@ interface ToolHeaderProps {
 }
 
 export function ToolHeader({ icon, name, description, category, categoryColor }: ToolHeaderProps) {
-  const Icon = (Icons as Record<string, LucideIcon>)[icon] ?? Icons.Wrench
+  const Icon = (Icons as unknown as Record<string, LucideIcon>)[icon] ?? Icons.Wrench
 
   return (
     <div className="flex items-start gap-4">

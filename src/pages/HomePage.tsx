@@ -15,7 +15,7 @@ import { trackSearch } from '@/services/analytics'
 import type { Tool } from '@/types'
 
 function ToolCard({ tool }: { tool: Tool }) {
-  const Icon = (Icons as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
+  const Icon = (Icons as unknown as Record<string, LucideIcon>)[tool.icon] ?? Icons.Wrench
   const colors = CATEGORY_COLORS[tool.category]
 
   return (
@@ -195,7 +195,7 @@ export function HomePage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {CATEGORIES.map((cat) => {
-            const Icon = (Icons as Record<string, LucideIcon>)[cat.icon] ?? Icons.Wrench
+            const Icon = (Icons as unknown as Record<string, LucideIcon>)[cat.icon] ?? Icons.Wrench
             const colors = CATEGORY_COLORS[cat.name]
             const toolCount = getToolsByCategory(cat.name).length
 
